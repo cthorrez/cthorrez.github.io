@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+<title>27/7/7 LeBron</title>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+<h2>27/7/7, The Intriguing Statistics of LeBron James</h2>
+
+By Clayton Thorrez
+
+<p>
+  When I should be doing statistics homework or working on coding projects, I often find myself browsing reddit.com/r/nba. An interesting piece of information I saw was that despite having a career average of 27 points, 7 rebounds, and 7 assists, LeBron James has never posted that exact statline in a game. I thought this was peculiar and set out to apply my statistics and programming knowledge to find the probability of this seemingly strange phenomenon.
+</p>
+
+<p>
+  I started by scraping data from basketball-reference.com. I collected James' statline from each of his 1143 regular season games across 15 seasons. My next decision was how I wanted to model the data. I had two probability distributions in mind to model the stats with, the Poisson distribution and the Gaussian (normal) distribution. The Poisson distribution was attrctive to me at first becasue it is a discrete distribution meaning that it is defined over integers rather than real numbers. This is a desirable quality becasue scoring in basketball is discrete so it would allow for more straightforward calculations.
+</p>
+
+<p>
+  In order to decide how to proceed, I looked at the data. First I calculated summary statistics for points, rebounds and assists.
+  $$ \begin{array} {|c|c|c|c|}
+  \hline
+  \text{statistic} & \text{mean} & \text{variance} & \text{standard deviation} \\ \hline
+  \text{points} & 27.15 & 62.58 & 7.91 \\
+  \text{rebounds} & 7.36 & 9.01 & 3.00 \\
+  \text{assists} & 7.18 & 8.35 & 2.89 \\
+  \hline
+  \end{array} $$
+
+  What these numbers told me is that the Poisson distribution is probably not appropriate to model this data. This is because of a property of the Poisson distribution where the mean is equal to the variance. However all three of these statistics violate that property, especially points. Next I decided to see how well the data fit a Gaussian distribution. To do this I plotted the various point, rebound and assist numbers along with the number of games LeBron has completed with exactly that number. On the same axis I plotted a continuous normal distribution with the mean and variance of the corresponding stat estimated from the data.
+
+<div class="row">
+  <div class="column">
+    <img src="figures/points.jpg" alt="points" style="width:1%">
+  </div>
+  <div class="column">
+    <img src="figures/rebounds.jpg" alt="rebounds" style="width:1%">
+  </div>
+  <div class="column">
+    <img src="figures/assists.jpg" alt="assists" style="width:1%">
+  </div>
+</div>
+
+
+
+</p>
+
+
+
+
+<p>
+When $a \ne 0$, there are two solutions to \(ax^2 + bx + c = 0\) and they are
+$$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$
+$$ \begin{array}{rcll}
+y & = & x^{2}+bx+c\\
+  & = & x^{2}+2\times\dfrac{b}{2}x+c\\
+  & = & \underbrace{x^{2}+2\times\dfrac{b}{2}x+\left(\frac{b}{2}\right)^{2}}-
+      {\left(\dfrac{b}{2}\right)^{2}+c}\\
+  &  & \qquad\left(x+{\dfrac{b}{2}}\right)^{2}\\
+  & = & \left(x+\dfrac{b}{2}\right)^{2}-\left(\dfrac{b}{2}\right)^{2}+c 
+  & \left|+\left({\dfrac{b}{2}}\right)^{2}-c\right.\\
+    y+\left(\dfrac{b}{2}\right)^{2}-c & = & \left(x+
+    \dfrac{b}{2}\right)^{2} & \left|\strut(\textrm{vertex form})\right.\\
+y-y_{S} & = & (x-x_{S})^{2}\\
+S(x_{S};y_{S}) & \,\textrm{or}\, 
+    & S\left(-\dfrac{b}{2};\,\left(\dfrac{b}{2}\right)^{2}-c\right)
+\end{array} $$
+</p>
+
