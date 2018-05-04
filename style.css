@@ -29,7 +29,7 @@ body {
   float:left;
   width:200px;
   margin:10px 5px 50px 5px;
-  min-height:200px;
+  min-height:600px;
   height:auto;
   border-right: 1px dotted #7CA9D7;
   padding:0px 10px 10px 10px;
@@ -39,7 +39,7 @@ body {
   float:right;
   width:745px;
   margin:10px 10px 50px 5px;
-  min-height:200px;
+  min-height:600px;
   height:auto;
 }
 
