@@ -1,3 +1,6 @@
 [submodule "lebron_27_7_7"]
 	path = lebron_27_7_7
 	url = https://github.com/cthorrez/lebron_27_7_7
+[submodule "pi_from_hypothesis_testing"]
+	path = pi_from_hypothesis_testing
+	url = https://github.com/cthorrez/pi_from_hypothesis_testing
