@@ -1,88 +1,46 @@
 <!DOCTYPE html>
+
 <html>
-    <head>
+    <head> 
+        <script src="jquery.js"></script> 
+        <script> 
+            $(function(){
+                $("#base").load("base.html #left"); 
+
+            });
+        </script> 
         <meta charset=UTF-8>
         <meta name=description content="">
         <meta name=keywords content="">
         <title>Clayton Thorrez</title>
         <link rel="stylesheet" href="style.css" type="text/css">
-    </head>
-    <body>
+    </head> 
+
+    <body id=body> 
         <div id=frame>
+            <div id="base"></div>
 
 
-<div id=left>
-            	<h2>Clayton Thorrez</h2> 
-
-            	<!-- <img width=200 align=right src="images/thorrez.jpg"> -->
-		<img width=200 align=right src="images/dssi_thorrez.png">
-
-                       
-                <p>Contact <br> 
-                <img src="images/umass.png">
-               	<img src="images/umich.png">
-               	<br>
-
-                <a href="https://github.com/cthorrez">
-<img border="0" alt="W3Schools" src="images/GitHub-Mark-32px.png" width="25" height="25">
-
-                <a href="https://www.linkedin.com/in/clayton-thorrez-49856a100/">
-<img border="0" alt="W3Schools" src="images/In-2CRev-128px-TM.png" width="25" height="25">
-
-				<a href="https://twitter.com/CThorrez">
-<img border="0" alt="W3Schools" src="images/Twitter_Social_Icon_Circle_Color.png" width="25" height="25">
-
-				<a href="https://www.youtube.com/channel/UCAeSfGrMneYh5jabNIdVLdg">
-<img border="0" alt="W3Schools" src="images/yt_icon_rgb.png" width="25" height="25">
-
-				<a href="https://www.reddit.com/user/cthorrez/posts/">
-<img border="0" alt="W3Schools" src="images/reddit_share_circle_128.png" width="25" height="25">
-
-
-
-
-        <hr>
-       <p><a href="./index.html"> Main </a></p>
-       <p><a href="./fun.html"> Fun Stuff </a></p>
-
-
-
-
-	</div> <!--left-->
 
             <div id=right>
+                <h3>Fun Stuff</h3>
+                <p>
+                    Occasionally in my free time I work on small side projects where I can apply statistics, python, machine learning, or miscelaneous data science related things to explore a topic that I find personally interesting or amusing. 
+                </p>
 
+                <h4><a href="pi_from_hypothesis_testing/index.html"><h4>Pi From Hypothsis Testing</h4></a></h4>
+                <p>
+                    I learned in a stats class that there are particular geometric properties ingrained within the Z and Wald statistical hypothesis tests. This project exploits this geometry and estimates the value of pi to a high degree by monte carlo sampling data sets, fitting OLS regression on them, performing hypothesis tests on the coefficients, and comparing the ratio of test acceptances.  
+                </p>
 
+                <h4><a href="lebron_27_7_7/index.html"><h4>LeBron 27/7/7</h4></a></h4>
+                <p>
+                    I read on reddit that LeBron James had averaged 27 points, 7 rebounds, and 7 assists per game for 15 seasons but had never completed one game with exactly those statistics. I attempted to model his statistics and calcualte the probability of that never happening. Code available <a href="https://github.com/cthorrez/lebron_27_7_7"> here</a>, writeup webpage <a href="lebron_27_7_7/index.html"> here</a>
+                </p>
+            </div> <!--right-->
 
-<h3>Fun Stuff</h3>
-<p>
-  Occasionally in my free time I work on small side projects where I can apply statistics, python, machine learning, or miscelaneous data science related things to explore a topic that I find personally interesting or amusing. 
-</p>
-
-<h4><a href="pi_from_hypothesis_testing/index.html"><h4>Pi From Hypothsis Testing</h4></a></h4>
-<p>
-  I learned in a stats class that there are particular geometric properties ingrained within the Z and Wald statistical hypothesis tests. This project exploits this geometry and estimates the value of pi to a high degree by monte carlo sampling data sets, fitting OLS regression on them, performing hypothesis tests on the coefficients, and comparing the ratio of test acceptances.  
-</p>
-
-<h4><a href="lebron_27_7_7/index.html"><h4>LeBron 27/7/7</h4></a></h4>
-<p>
-  I read on reddit that LeBron James had averaged 27 points, 7 rebounds, and 7 assists per game for 15 seasons but had never completed one game with exactly those statistics. I attempted to model his statistics and calcualte the probability of that never happening. Code available <a href="https://github.com/cthorrez/lebron_27_7_7"> here</a>, writeup webpage <a href="lebron_27_7_7/index.html"> here</a>
-</p>
-
-<h4>Esports Data Science</h4>
-<p>
-  This project combined my interests in machine learning and professional League of Legends. I scraped data on over 15,000 professional League of Legends matches and trained models to predict the winners of future games. I made a series of statistical posts on <a href="https://www.reddit.com/user/esportsdatascience/posts/"> reddit </a> and made predictions on <a href="https://twitter.com/esportsds"> twitter</a>. This project is mostly inactive but I hope to return to modeling team sports and esports in the future. 
-</p>
-
-
-
-
-            </div>
-          	<div id="footer">
-    	       <!-- &copy; 2015, The University of Michigan -->
-
-          	</div>
-        </div>
-    </body>
+            <div id="footer"></div>
+        </div> <!--frame-->
+    </body> 
 </html>
 
