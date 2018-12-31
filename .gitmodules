@@ -4,3 +4,6 @@
 [submodule "pi_from_hypothesis_testing"]
 	path = pi_from_hypothesis_testing
 	url = https://github.com/cthorrez/pi_from_hypothesis_testing
+[submodule "ml-fun"]
+	path = ml-fun
+	url = https://github.com/cthorrez/ml-fun
