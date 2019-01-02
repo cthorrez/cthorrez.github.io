@@ -28,19 +28,20 @@ body {
   clear:both;
   float:left;
   width:200px;
-  margin:10px 5px 50px 5px;
+  margin:10px 0px 50px 5px;
   min-height:600px;
   height:100vh;
-  border-right: 1px dotted #7CA9D7;
-  padding:0px 10px 0px 10px;
+  padding:0px 0px 0px 10px;
 }
 
 #right {
   float:right;
   width:745px;
-  margin:10px 10px 50px 5px;
-  min-height:600px;
-  height:auto;
+  min-height:800px;
+  border-left: 1px dotted #7CA9D7;
+  margin: 10px 10px 50px 0px;
+  padding: 0px 0px 0px 19px;
+  height: auto;
 }
 
 p, li, td {
@@ -99,5 +100,13 @@ h4 {
     color:#000000;
 }
 
+.llnl {
+  display: flex;
+  align-items: center;
+}
+
+figcaption {
+  font-size: 10pt;;
+}
 
 

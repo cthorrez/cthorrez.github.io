@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html>
+  <head> 
+    <script src="jquery.js"></script> 
+    <script> 
+      $(function(){
+        $("#base").load("base.html #left"); 
+      });
+    </script> 
+    <meta charset=UTF-8>
+    <meta name=description content="">
+    <meta name=keywords content="">
+    <title>Clayton Thorrez</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+  </head> 
+
+  <body id=body> 
+    <div id=frame>
+      <div id="base"></div>
+        <div id=right>
+          <h2>Projects</h2>
+          <p>
+            A selection of medium to large scale project I have worked on for school or work. 
+          </p>
+
+          <h3>Exploring Loss Functions for Object Localization</h3>
+            <p>
+              This was my final project for CS 682, Neural Nets. I trained neural networks to classify and locate objects in images. I experimented using alternative loss functions and trained an additional neural net to approximate the desired utility metric and used the network itself as a loss function. <a href="https://drive.google.com/file/d/1rkskYbMrESdfRZrw54_YXOkXfw2pkANc/view?usp=sharing"> [report]</a> <a href="https://drive.google.com/file/d/1z5Ct_nwpu5m0rQB5UE6kjoCslPU3yP5p/view?usp=sharing"> [poster] </a> <a href="https://github.com/cthorrez/cs682_project"> [code] </a>
+              <figure>
+                <img src="images/combined.png" alt="bounding box images" style="width:100%">
+                <figcaption>Output location predictions for models trained with different loss functions.</figcaption>
+              </figure>
+            </p>
+            <br>
+
+          <h3>Implementing Index Structures for High Dimensional Data</h3>
+            <p>
+              As a final project for CS 645, Databases, my teammates and I implemented VA-file and R*-tree data structures to accelerate nearest neighbor search on high dimensional data sets. We worked to reproduce the experiments in this <a href="https://pdfs.semanticscholar.org/5444/cbc603c1b1d4e16bd8cadc9e55c6ce690cdd.pdf">paper</a>. <a href="https://drive.google.com/file/d/1-QCBHNfzPaGs36vN2egvZO9-12dfIkyT/view?usp=sharing"> [report] </a><a href="https://github.com/HanwenX/A-Quantative-Analysis-for-VA-in-HD-Database"> [code] </a>
+              <figure>
+                <img src="images/645_results.png" style="width:90%">
+                <figcaption>Search performance of the data structures in the original paper compared to the results with our implementations.</figcaption>
+              </figure>
+            </p>
+            <br>
+
+          <h3>Using Reinforcement Learning to Discover Adaptive Sepsis Treatments</h3>
+            <p>
+              As an intern at Lawrence Livermore National Laboratory, I worked on a project applying deep reinforcement learning algorithms to medical simulations of sepsis. The goal was to learn combinations of drugs which when applied to patients in specific medical states increase the expected health status of the patient over the course of their treatment. <a href="https://drive.google.com/open?id=1vlfxjWB7E8M3bgWJP378DXg9MNOIKDX5">[poster]</a>
+              <figure class="llnl">
+                <img src="images/llnl_control_loop.png" style="width:60%">
+                <figcaption>Control loop for our reinforcement learning agent to interact with the medical simulation.</figcaption>
+              </figure>
+            </p>
+            <br>
+
+          <h3>Designated Sinker</h3>
+            <p>
+              As a final project for EECS 467, Autonomous Robotics, my teammates and I made a robot which plays beer pong. It used an Xbox Kinect camera and computer vision techniques to locate the positions of target cups. We programmed the kinematics of 5 joint robotic arm to be to perform picking up and throwing motions. To throw the ball the correct distance, we fit a polynomial regression model from arm torque and speed to distance thrown and inverted it to map from desired distance to required torque and speed. <a href="https://drive.google.com/open?id=15-TZedj25xVrrYyA34yLYjPfHDOti8gL">[report]</a> <a href="https://drive.google.com/open?id=1UgW-yJ2IwrbHwUMCFwQj0hpfwxHIZGSZ">[poster]</a>
+              <figure class="beerpong">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/YdwV0mgkzxs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <figcaption>In lab demonstration of our robot playing beer pong.</figcaption>
+              </figure>
+            </p>
+      </div> <!--right-->
+    <div id="footer"></div>
+    </div> <!--frame-->
+  </body> 
+</html>
+
