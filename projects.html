@@ -11,18 +11,43 @@
     <meta charset=UTF-8>
     <meta name=description content="">
     <meta name=keywords content="">
-    <title>Clayton Thorrez</title>
+    <title>Projects</title>
     <link rel="stylesheet" href="style.css" type="text/css">
   </head> 
 
   <body id=body> 
     <div id=frame>
-      <div id="base"></div>
+      <div id=base></div>
         <div id=right>
           <h2>Projects</h2>
           <p>
             A selection of medium to large scale project I have worked on for school or work. 
           </p>
+
+          <h3>Resolving Large Action Spaces in Text-based Games </h3>
+            <p>
+                In collaboration with Microsoft Research Montreal and Umass Amherst, I worked on a project applying reinforcement learning algorithms to text based games. We implemented extensions of A2C and DQN using LSTMs to encode states and generate natural language actions. We tested our algorithms in the Microsoft TextWorld environment. <a href="https://drive.google.com/file/d/1mgU-DM41KluSYY9ue9hYQber0L8Hxfq2/view?usp=sharing"> [report]</a> <a href="https://drive.google.com/file/d/1CgEQFuuXo2wysPYWOz0Jl0kZlTkG_moc/view?usp=sharing"> [poster] </a>
+
+                <figure>
+                  <img src="images/MSR_architectures.png" width="100%"><figcaption>Nueral architectures used to take in text descriptions of observations and inventory and generate probabilities over actions and Q values.</figcaption>
+                </figure>
+            </p>
+            <br>
+
+
+          <h3>Word2VecS: Automatically Learning Multiple Word Senses </h3>
+            <p>
+                In my final project for CS 690D, Deep Learning for Natural Language Processing, I developed a method for learning seperate word representations in order to better represent words with multiple meanings. The embeddings learned the different contexts of words and worked well as inputs to downstream tasks. <a href="https://drive.google.com/file/d/1kz3JTZmQVFKMei0LR28_ZrPmdOSJBXiA/view?usp=sharing"> [report]</a> <a href="https://drive.google.com/file/d/17_fmzb9SvMPc_1kDxKJqyKFlKW2ZZ9eN/view?usp=sharing"> [poster] </a> <a href="https://github.com/cthorrez/word2vecS"> [code] </a>
+                <div class="w2v_imgs">
+                  <figure class=dual_figure>
+                    <img src="images/w2vs_neighbors.png" width="330px" height="200px"><figcaption>Different vectors for the same word learn different contexts of the word.</figcaption>
+                  </figure>
+                  <figure class=dual_figure>
+                    <img src="images/w2vs_acc.png" width="320px" height="200px"><figcaption>Multi-sense embeddings give a slight edge on a sentiment analysis task.</figcaption>
+                  </figure>
+                </div>
+            </p>
+            <br>
 
           <h3>Exploring Loss Functions for Object Localization</h3>
             <p>
