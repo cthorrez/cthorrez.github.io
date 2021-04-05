@@ -7,3 +7,6 @@
 [submodule "ml-fun"]
 	path = ml-fun
 	url = https://github.com/cthorrez/ml-fun
+[submodule "ddpgbdt"]
+	path = ddpgbdt
+	url = https://github.com/cthorrez/ddpgbdt.git
