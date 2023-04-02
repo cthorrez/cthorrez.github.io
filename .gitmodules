@@ -10,3 +10,6 @@
 [submodule "ddpgbdt"]
 	path = ddpgbdt
 	url = https://github.com/cthorrez/ddpgbdt.git
+[submodule "AcHOO"]
+	path = AcHOO
+	url = https://github.com/cthorrez/AcHOO
