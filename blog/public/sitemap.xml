@@ -2,9 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>//localhost:1313/posts/</loc>
-    <lastmod>2022-05-18T11:22:44+08:00</lastmod>
-  </url><url>
     <loc>//localhost:1313/about/</loc>
     <lastmod>2024-02-28T20:27:30-08:00</lastmod>
   </url><url>
@@ -12,6 +9,9 @@
     <lastmod>2024-02-28T20:27:30-08:00</lastmod>
   </url><url>
     <loc>//localhost:1313/tags/machine-learning/</loc>
+    <lastmod>2024-02-28T20:27:30-08:00</lastmod>
+  </url><url>
+    <loc>//localhost:1313/posts/</loc>
     <lastmod>2024-02-28T20:27:30-08:00</lastmod>
   </url><url>
     <loc>//localhost:1313/tags/rating-systems/</loc>
