@@ -1,6 +1,7 @@
 title = "Clayton's Blog"
 theme = "hugo-theme-flat"
-themesDir = "themes"
+# themesDir = "themes" # for local
+themesDir = "../.."   # maybe this works for github actions?
 enableRobotsTXT = true
 hasCJKLanguage = true
 paginate = 4
