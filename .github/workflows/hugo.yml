@@ -59,7 +59,7 @@ jobs:
             --buildDrafts \
             --source ./blog \
             --minify \
-            --baseURL "${{ steps.pages.outputs.base_url }}/blog" \
+            --baseURL "${{ steps.pages.outputs.base_url }}blog" \
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
