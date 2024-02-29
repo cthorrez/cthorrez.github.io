@@ -60,7 +60,7 @@ jobs:
             --source ./blog \
             --minify \
             --baseURL "${{ steps.pages.outputs.base_url }}/blog/" \
-            --destination ./blog/public
+            --destination ./blog
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
