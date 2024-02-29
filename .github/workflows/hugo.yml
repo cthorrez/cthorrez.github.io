@@ -55,7 +55,8 @@ jobs:
           HUGO_ENV: production
         run: |
           hugo \
-            --buildDrafts \
+          --source ./blog \
+          --minify \
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
@@ -66,7 +67,7 @@ jobs:
   deploy:
     environment:
       name: github-pages
-      url: "https://cthorrez.github.io/blog/"
+      url: "https://cthorrez.github.io//blog/"
     runs-on: ubuntu-latest
     needs: build
     steps:
