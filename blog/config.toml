@@ -4,7 +4,7 @@ themesDir = "themes"
 enableRobotsTXT = true
 hasCJKLanguage = true
 paginate = 4
-baseURL = "www.cthorrez.github.io"
+baseURL = ""
 
 # these values are hugo built in markup config
 [markup.highlight]
