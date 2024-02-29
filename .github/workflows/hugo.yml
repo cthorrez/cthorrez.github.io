@@ -57,7 +57,7 @@ jobs:
           hugo \
           --source ./blog \
           --minify \
-          --destination ./blog/public
+          --verbose \
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
