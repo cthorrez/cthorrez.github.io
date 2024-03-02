@@ -6,7 +6,7 @@ hasCJKLanguage = true
 paginate = 4
 baseURL = "https://cthorrez.github.io/blog/"
 publishDir = "blog/public"
-relativeURLs = true
+# relativeURLs = true
 # canonicalURLs = true
 
 # these values are hugo built in markup config
