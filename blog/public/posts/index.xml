@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Clayton&#39;s Blog</title>
-    <link>https://cthorrez.github.io/blog/posts/</link>
+    <link>http://localhost:1313/blog/posts/</link>
     <description>Recent content in Posts on Clayton&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 28 Feb 2024 20:27:30 -0800</lastBuildDate><atom:link href="https://cthorrez.github.io/blog/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 28 Feb 2024 20:27:30 -0800</lastBuildDate><atom:link href="http://localhost:1313/blog/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Why I Like Rating Systems Research</title>
-      <link>https://cthorrez.github.io/blog/posts/i_like_rating_sytems/</link>
+      <link>http://localhost:1313/blog/posts/i_like_rating_sytems/</link>
       <pubDate>Wed, 28 Feb 2024 20:27:30 -0800</pubDate>
       
-      <guid>https://cthorrez.github.io/blog/posts/i_like_rating_sytems/</guid>
+      <guid>http://localhost:1313/blog/posts/i_like_rating_sytems/</guid>
       <description>&lt;p&gt;I like rating systems research. What are rating systems? Rating systems are systems for assigning ratings to &amp;ldquo;things&amp;rdquo; representing how &amp;ldquo;good&amp;rdquo; they are in comparison to other &amp;ldquo;things&amp;rdquo;. The most common examples are in competitions like sports or chess, where each team or player gets assigned a number representing their strength, the higher the number, the better they are. Rating systems are just the different ways to get those numbers.&lt;/p&gt;
 </description>
     </item>
