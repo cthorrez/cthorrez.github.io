@@ -58,13 +58,13 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./blog/
+          path: ./public/
 
   # Deployment job
   deploy:
     environment:
       name: github-pages
-      url: "https://cthorrez.github.io/blog/blog/"
+      url: "https://cthorrez.github.io/blog/"
     runs-on: ubuntu-latest
     needs: build
     steps:
