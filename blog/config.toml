@@ -5,7 +5,7 @@ enableRobotsTXT = true
 hasCJKLanguage = true
 paginate = 4
 baseURL = "https://cthorrez.github.io/blog/"
-publishDir = "blog"
+publishDir = "../public"
 
 # these values are hugo built in markup config
 [markup.highlight]
