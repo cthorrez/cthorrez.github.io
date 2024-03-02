@@ -1,5 +1,4 @@
-# Sample workflow for building and deploying a Hugo site to GitHub Pages
-name: Deploy Hugo site to Pages
+name: build and deploy
 
 on:
   # Runs on pushes targeting the default branch
@@ -54,9 +53,7 @@ jobs:
           HUGO_ENVIRONMENT: production
           HUGO_ENV: production
         run: |
-          hugo -D --source ./blog
-      - name: Print contents of a directory
-        run: find ./ -type f
+          hugo --source ./blog
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
@@ -78,4 +75,3 @@ jobs:
           api_location: "api" # Api source code path - optional
           output_location: "" # Built app content directory - optional
           ###### End of Repository/Build Configurations ######
-
