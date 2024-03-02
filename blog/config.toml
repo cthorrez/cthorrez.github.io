@@ -4,8 +4,8 @@ themesDir = "themes"
 enableRobotsTXT = true
 hasCJKLanguage = true
 paginate = 4
-baseURL = "https://cthorrez.github.io/blog/"
-publishDir = "../public"
+baseURL = "https://cthorrez.github.io/"
+publishDir = "../blog"
 
 # these values are hugo built in markup config
 [markup.highlight]
