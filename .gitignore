@@ -1,0 +1,12 @@
+blog/categories/*
+blog/css/*
+blog/js/*
+blog/lib/*
+blog/page/*
+blog/posts/*
+blog/about/*
+blog/tags/*
+blog/index.html
+blog/index.xml
+blog/robots.txt
+blog/sitemap.xml
