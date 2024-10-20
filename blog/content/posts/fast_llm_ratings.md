@@ -1,5 +1,5 @@
 ---
-title: "How I Sped Up the ChatBot Arena Ratings Calculations from 15 Minutes to 8 Seconds"
+title: "How I Sped Up the ChatBot Arena Ratings Calculations from 19 Minutes to 8 Seconds"
 date: 2024-10-20
 draft: false
 tags: ["rating systems", "Bradley-Terry", "optimization", "paired comparison"]
@@ -51,22 +51,22 @@ To do this you have to do some preprocessing to construct the matrix \(X\) out o
 
 Here's an example of how to represent 2 matches with 4 total competitors (a,b,c,d):
 $$\begin{bmatrix}
-1 & -1 & 0 & 0 \\[4pt]
+1 & -1 & 0 & 0 \\\
 0 & 0 & 1 & -1
 \end{bmatrix}$$
 The first row represents a match between a (index 0) and b (index 1), and the second row encodes a match between c (index 2) and d (index 3). The second part of the story is to understand that \(w\) (the logistic regression weights) is the same as \(r\) (the vector of Bradley-Terry ratings). This makes sense when you think about Bradley-Terry from a machine learning perpsective where the ratings are the parameters of the model you are training. In this case \(r = [r_a, r_b, r_c, r_d]\).
 
 Ok now let's put together the matrix representation of matches with the parameter vector and multiply \(X\) by \(w\).
 $$\begin{bmatrix}
-1 & -1 & 0 & 0 \\
+1 & -1 & 0 & 0 \\\
 0 & 0 & 1 & -1
 \end{bmatrix} \times \begin{bmatrix}
-r_a \\
-r_b \\
-r_c \\
+r_a \\\
+r_b \\\
+r_c \\\
 r_d
 \end{bmatrix} = \begin{bmatrix}
-r_a - r_b \\
+r_a - r_b \\\
 r_c - r_d \end{bmatrix}$$
 And look at that, we've gotten back to the difference in ratings that we expect to put into the sigmoid during the BT model fitting and we got there fully using the logistic regression toolbox.
 
@@ -188,7 +188,7 @@ np.add.at(
 ```
 
 ### Something Kinda Weird about Pandas and JSON
-During this process I worked in a dev repo [faster-arena-elo](https://github.com/cthorrez/faster-arena-elo) and for quick iteration, I did some of the initial preprocessing such as filtering out non-ananymized rows, or truncating to a smaller subsample and writing that to an intermediate parquet file and reading with polars for faster disk loading times on the tests. I noticed that this actually sped up the original baseline by a lot. As I debugged I found that you could get a ~3.5x speedup (15 min -> 5 min) in the original code simply by converting the original pandas dataframe to polars and back, or even by writing it to disk as parquet and then reading it back using only pandas. My best guess here is that the original data being a json, when it is loaded by pandas has a very poor arrangement in memory like it isn't contiguous or causes a lot of cache misses, and that routing through a better representation and back can fix that. (I actually didn't even apply this change in the PR so the entire thing could still speed up more)
+During this process I worked in a dev repo [faster-arena-elo](https://github.com/cthorrez/faster-arena-elo) and for quick iteration, I did some of the initial preprocessing such as filtering out non-ananymized rows, or truncating to a smaller subsample and writing that to an intermediate parquet file and reading with polars for faster disk loading times on the tests. I noticed that this actually sped up the original baseline by a lot. As I debugged I found that you could get a ~3.5x speedup (19 min -> 5 min) in the original code simply by converting the original pandas dataframe to polars and back, or even by writing it to disk as parquet and then reading it back using only pandas. My best guess here is that the original data being a json, when it is loaded by pandas has a very poor arrangement in memory like it isn't contiguous or causes a lot of cache misses, and that routing through a better representation and back can fix that. (I actually didn't even apply this change in the PR so the entire thing could still speed up more)
 
 ```python
 # routing through parquet
@@ -204,7 +204,7 @@ If you have slow pandas code that reads from json and don't have the time to mig
 An intersting fact to note is that with all of the optimizations applied to the preprocessing and model fitting, the single sample run of Bradley-Terry model fitting is atually only slightly faster than the original code! (11.2s -> 3.9s on my laptop, 6.6s -> 3.3s on my desktop) Despite the fact that it is highly optimized, and produces a very efficient representation, the new code does more processing work overall to produce that representation. It's only when we do the bootstrap that we reap all of the benefits of the dedupliplication, removing repeated computation, and parallelization. 
 
 # Conclusion
-So, with all of those optimizations (and some more), the overall runtime of Bradley-Terry model for 100 bootstrap samples was reduced from about 15 minutes, to under 10 seconds. I learned a lot of lessons along the way on how to target various optimization surfaces ranging across data structures and formats, algorithmic complexity, mathematical optimization. My parting thought is to encourage all ml practitioners to implement things from scratch yourself sometimes. This process builds deep understanding if the data and models you are working with which can often be leveraged for massive improvements in speed. An in ML, improvements in speed mean less cost, more experiment iterations, and better experiences for your users.
+So, with all of those optimizations (and some more), the overall runtime of Bradley-Terry model for 100 bootstrap samples was reduced from over 19 minutes, to just 8 seconds. I learned a lot of lessons along the way on how to target various optimization surfaces ranging across data structures and formats, algorithmic complexity, mathematical optimization. My parting thought is to encourage all ml practitioners to implement things from scratch yourself sometimes. This process builds deep understanding if the data and models you are working with which can often be leveraged for massive improvements in speed. An in ML, improvements in speed mean less cost, more experiment iterations, and better experiences for your users.
 
 
 # Appendix
