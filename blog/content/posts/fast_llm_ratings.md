@@ -201,23 +201,19 @@ If you have slow pandas code that reads from json and don't have the time to mig
 
 
 ### Caveat about Timing
-An intersting fact to note is that with all of the optimizations applied to the preprocessing and model fitting, the single sample run of Bradley-Terry model fitting is atually only slightly faster than the original code! (11.2s -> 3.9s on my laptop, 6.6s -> 3.3s on my desktop) Despite the fact that it is highly optimized, and produces a very efficient representation, the new code does more processing work overall to produce that representation. It's only when we do the bootstrap that we reap all of the benefits of the dedupliplication, removing repeated computation, and parallelization. 
+An intersting fact to note is that with all of the optimizations applied to the preprocessing and model fitting, the single sample run of Bradley-Terry model fitting is atually **only slightly faster** than the original code! (5.1s -> 2.3s on my laptop) Despite the fact that it is highly optimized, and produces a very efficient representation, the new code does more processing work overall to produce that representation. It's only when we do the bootstrap that we reap all of the benefits of the deduplication, removing repeated computation, and parallelization. 
 
 # Conclusion
-So, with all of those optimizations (and some more), the overall runtime of Bradley-Terry model for 100 bootstrap samples was reduced from over 19 minutes, to just 8 seconds. I learned a lot of lessons along the way on how to target various optimization surfaces ranging across data structures and formats, algorithmic complexity, mathematical optimization. My parting thought is to encourage all ml practitioners to implement things from scratch yourself sometimes. This process builds deep understanding if the data and models you are working with which can often be leveraged for massive improvements in speed. An in ML, improvements in speed mean less cost, more experiment iterations, and better experiences for your users.
+So, with all of those optimizations (and some more), the overall runtime of Bradley-Terry model for 100 bootstrap samples was reduced from over 19 minutes, to just 8 seconds.
+![alt text](../times.png)
+
+I learned a lot of lessons along the way on how to target various optimization surfaces ranging across data structures and formats, algorithmic complexity, mathematical optimization. My parting thought is to encourage all ml practitioners to implement things from scratch yourself sometimes. This process builds deep understanding if the data and models you are working with which can often be leveraged for massive improvements in speed. An in ML, improvements in speed mean less cost, more experiment iterations, and better experiences for your users.
 
 
 # Appendix
 ### Exponential Reparameterized BT with Sigmoid
 Recall \(\sigma(x) = \frac{1}{1 + e^{-x}}\)
 
-\[
+$$
 p(i \succ j) = \frac{e^{r_i}}{e^{r_i} + e^{r_j}} * \frac{e^{-r_i}}{e^{-r_i}} = \frac{1}{1 + e^{r_j}*e^{-r_i}} = \frac{1}{1 + e^{-(r_i - r_j)}} = \sigma(r_i - r_j)
-\]
-
-Thus, the Bradley-Terry model can be written as:
-
-\[
-P(i \text{ beats } j) = \sigma(r_i)
-\]
-
+$$
