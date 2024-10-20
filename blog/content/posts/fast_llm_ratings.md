@@ -50,10 +50,10 @@ Here \(X\ \in \mathbb{R}^{N \times d}\) is the data matrix and \(w\ \in \mathbb{
 To do this you have to do some preprocessing to construct the matrix \(X\) out of the dataset of matchups. The key is to make \(d\) (the dimensionality of the logistic regressio) equal to \(C\), the total number of competitors in the dataset, and to fill the matrix sparsely with only two non-zero entries per row, indicating the two competitors in that metch, with a value of 1 at the index representing competitor a and a -1 for competitor b.
 
 Here's an example of how to represent 2 matches with 4 total competitors (a,b,c,d):
-\begin{bmatrix}
+$$\begin{bmatrix}
 1 & -1 & 0 & 0 \\[4pt]
 0 & 0 & 1 & -1
-\end{bmatrix}
+\end{bmatrix}$$
 The first row represents a match between a (index 0) and b (index 1), and the second row encodes a match between c (index 2) and d (index 3). The second part of the story is to understand that \(w\) (the logistic regression weights) is the same as \(r\) (the vector of Bradley-Terry ratings). This makes sense when you think about Bradley-Terry from a machine learning perpsective where the ratings are the parameters of the model you are training. In this case \(r = [r_a, r_b, r_c, r_d]\).
 
 Ok now let's put together the matrix representation of matches with the parameter vector and multiply \(X\) by \(w\).
