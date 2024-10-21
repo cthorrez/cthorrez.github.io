@@ -38,7 +38,7 @@ $$\mathbf{r}^* = \underset{\mathbf{r}}{\operatorname{argmax}} \sum_{(w,l) \in \t
 Some of you may have recoginzed this form and in fact it can be written instead with our good friend the logistic sigmoid! (Full derivation in the appendix)
 $$\mathbf{r}^* = \underset{\mathbf{r}}{\operatorname{argmax}} \sum_{(w,l) \in \text{matches}} \log(\sigma(r_w - r_l))$$
 
-Next we allow for draws. To do this we will change the encoding of the dataset to be $(a,b,y)$ tuples where $a$ and $b$ still represent the competitors, but now we introduce the label/outcome $\textbf{y}$  $y_i \in \{1, 0.5, 0\}$ and represents the outcome or label for a matchup indexed by $n$. In this setup 1 represents a win for a (loss for b), 0.5 a tie, and 0 a win for b (loss for a). With the assumption gone we can write the objective:
+Next we allow for draws. To do this we will change the encoding of the dataset to be $(a,b,y)$ tuples where $a$ and $b$ still represent the competitors, but now we introduce the label/outcome $\textbf{y}$ with $y_i \in \{1, 0.5, 0\}$ which represents the outcome or label for a matchup indexed by $i$. In this setup 1 represents a win for a (loss for b), 0.5 a tie, and 0 a win for b (loss for a). With the assumption gone we can write the objective:
 $$\mathbf{r}^* = \underset{\mathbf{r}}{\operatorname{argmax}} \sum_{(a,b,y) \in \text{matches}} \left[y * \log(\sigma(r_a - r_b)) + (1-y) * \log(\sigma(r_b - r_a))\right]$$
 
 ### The Logistic Regression Connection
