@@ -147,8 +147,8 @@ body {
 
 .main { padding: var(--len-4); }
 .side { padding-left: var(--len-4); }
-.main { flex: 0 0 72%; width: 72%; }
-.side { flex: 0 0 28%; width: 28%; }
+.main { flex: 0 0 82%; width: 82%; }
+.side { flex: 0 0 18%; width: 18%; }
 
 /* mobile layout: place side to bottom */
 @media (max-width: 991px) {
@@ -183,7 +183,7 @@ body {
 
 /********** set up break point **********/
 
-                             .main-wrapper, .header { max-width: 1140px; }
+                             .main-wrapper, .header { max-width: 1350px; }
 @media (max-width: 1199px) { .main-wrapper, .header { max-width: 960px; } }
 @media (max-width: 991px)  { .main-wrapper, .header { max-width: 720px; } }
 @media (max-width: 767px)  { .main-wrapper, .header { max-width: 540px; } }
@@ -443,6 +443,7 @@ body {
   border-radius: 2px;
   line-height: inherit;
   word-wrap: break-word;
+  font-size: var(--font-size-2);
 }
 
 /* keep in style with highlighting */

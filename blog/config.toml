@@ -7,6 +7,14 @@ paginate = 4
 baseURL = "https://cthorrez.github.io/blog/"
 publishDir = "./"
 
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.extensions]
+      [markup.goldmark.extensions.passthrough]
+        enable = true
+        [markup.goldmark.extensions.passthrough.delimiters]
+          block = [['\[', '\]'], ['$$', '$$']]
+          inline = [['\(', '\)']]
 # these values are hugo built in markup config
 [markup.highlight]
 anchorLineNos = false
@@ -25,6 +33,7 @@ tabWidth = 4
 [params]
 description = "it's a blog what do you expect?"
 mainSections = ['posts']
+math = true
 
 ## uncomment belows and set proper values to enable remark42
 # [params.remark42]
