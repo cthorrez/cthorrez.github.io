@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clayton's Hugo Journey</title>
+    <style>
+        body {
+            background: #1a1a1a;
+            color: #e0e0e0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            line-height: 1.4;
+        }
+        @keyframes subtleNeonPulse {
+            0% { text-shadow: 0 0 2px #fff, 0 0 4px #0fa, 0 0 8px #0fa; }
+            50% { text-shadow: 0 0 1px #fff, 0 0 2px #0fa, 0 0 6px #0fa; }
+            100% { text-shadow: 0 0 2px #fff, 0 0 4px #0fa, 0 0 8px #0fa; }
+        }
+        h1 { 
+            color: #0a8;
+            font-size: 2rem; 
+            margin: 0 0 1rem 0;
+            font-weight: 600;
+            animation: subtleNeonPulse 3s ease-in-out infinite;
+        }
+        .intro {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            align-items: start;
+            padding: 1rem;
+            background: #252525;
+            border-radius: 8px;
+        }
+        .intro img {
+            width: 15%;
+            height: 15%;
+            border-radius: 4px;
+        }
+        .intro-text {
+            flex: 1;
+        }
+        .intro-text p {
+            margin: 0.5rem 0;
+            color: #bbb;
+        }
+        .legend {
+            color: #888;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #333;
+        }
+        .legend span { margin-right: 1rem; }
+        .book-list { list-style: none; padding: 0; margin: 0; }
+        .book {
+            display: flex;
+            align-items: baseline;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #333;
+            gap: 1rem;
+        }
+        .book:hover { background: #252525; }
+        .book-info { flex: 1; }
+        .book-title { font-weight: 500; }
+        .book-meta { color: #888; font-size: 0.9rem; }
+        .status { font-size: 1.2rem; opacity: 0.3; }
+        .owned .own-status, .read .read-status { opacity: 1; }
+        #book-data { display: none; }
+    </style>
+</head>
+<body>
+    <div class="intro">
+        <img src="/images/hugo.jpg" alt="Hugo Gernsback" height=50% width=50%>
+        <div class="intro-text">
+            <h1>Clayton's Hugo Journey</h1>
+            <p>A page to track my progress through all winners of the Hugo Award for best novel.</p>
+            <p>Hugo Gernsback, "The Father of Science Fiction", was a pioneer in Sci-Fi publishing, as well as a noted inventor and technologist. </p>
+        </div>
+    </div>
+
+    <div class="legend">
+        <span>📕 = Owned</span>
+        <span>📖 = Read</span>
+    </div>
+
+    <ul class="book-list"></ul>
+
+    <script>
+        const bookList = document.querySelector('.book-list');
+        
+        fetch('data.csv')
+            .then(response => response.text())
+            .then(csvText => {
+                const data = csvText
+                    .trim()
+                    .split('\n')
+                    .map(line => line.trim())
+                    .filter(line => line.length > 0)
+                    .map(line => {
+                        const [year, title, author, owned, read] = line.split(',');
+                        return { year, title, author, owned: owned === 'y', read: read === 'y' };
+                    });
+    
+                // Calculate stats
+                const total = data.length;
+                const owned = data.filter(book => book.owned).length;
+                const read = data.filter(book => book.read).length;
+    
+                bookList.innerHTML = data.map(book => `
+                    <li class="book ${book.owned ? 'owned' : ''} ${book.read ? 'read' : ''}">
+                        <div class="book-info">
+                            <span class="book-title">${book.title}</span>
+                            <span class="book-meta">by ${book.author} (${book.year})</span>
+                        </div>
+                        <span class="status own-status">📕</span>
+                        <span class="status read-status">📖</span>
+                    </li>
+                `).join('') + `
+                    <li class="book-stats" style="margin-top: 1rem; padding-top: 1rem; border-top: 2px solid #333;">
+                        <div class="book-info">
+                            <span class="book-meta">Progress: Owned ${owned}/${total} (${Math.round(owned/total*100)}%) • Read ${read}/${total} (${Math.round(read/total*100)}%)</span>
+                        </div>
+                    </li>
+                `;
+            })
+            .catch(error => console.error('Error loading CSV:', error));
+    </script>
+</body>
+</html>
