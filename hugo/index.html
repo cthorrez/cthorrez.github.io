@@ -92,7 +92,7 @@
     <script>
         const bookList = document.querySelector('.book-list');
         
-        fetch('./data.csv')
+        fetch('/hugo/data.csv', { headers: { 'Content-Type': 'text/plain' } })
             .then(response => response.text())
             .then(csvText => {
                 const data = csvText
